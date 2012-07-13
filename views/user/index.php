@@ -11,7 +11,7 @@ if(UserModule::isAdmin()) {
 }
 ?>
 
-<h1><?php echo UserModule::t("List User"); ?></h1>
+<h1><?php echo UserModule::t("List Users"); ?></h1>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'dataProvider'=>$dataProvider,

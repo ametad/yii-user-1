@@ -17,7 +17,7 @@
 		<?php echo CHtml::activeLabelEx($model,'title'); ?>
 		<?php echo CHtml::activeTextField($model,'title',array('size'=>60,'maxlength'=>255)); ?>
 		<?php echo CHtml::error($model,'title'); ?>
-		<p class="hint"><?php echo UserModule::t('Field name on the language of "sourceLanguage".'); ?></p>
+		<p class="hint"><?php echo UserModule::t('Field name, named in the language of "sourceLanguage".'); ?></p>
 	</div>
 
 	<div class="row field_type">
