@@ -133,7 +133,7 @@ return array(
     'Your account is activated.'=>'Uw account is geactiveerd.',
     'Changes are saved.'=>'Wijzigingen zijn opgeslagen.',
     'You have requested a password recovery of {site_name}'=>'U heeft paswoordherstel aangevraagd voor {site_name}',
-    'You have requested our password recovery services. To receive a new password, go to {activation_url}. Sincerely, Team of {site_name}'=>'U heeft bij ons een aanvraag gedaan om uw paswoord opnieuw in te stellen. Om een nieuw paswoord te verkrijgen gaat u naar {activation_url}. Met vriendelijke groet, Team van {site_name}'
+    'You have requested our password recovery services. To receive a new password, go to {activation_url}. Sincerely, Team of {site_name}'=>'U heeft bij ons een aanvraag gedaan om uw paswoord opnieuw in te stellen. Om een nieuw paswoord te verkrijgen gaat u naar {activation_url}. Met vriendelijke groet, Team van {site_name}',
     'Please check your email. Further instructions are sent to your email address.'=>'Controleer alstublieft uw email. Verdere instructies zijn naar uw emailadres verzonden.',
     'Thank you for your registration. Please activate your account, go to {activation_url}. Sincerely, Team of {site_name}'=>'Dank u wel voor uw registratie. Maak uw account alstublieft actief via {activation_url}. Met vriendelijke groet, Team van {site_name}',
     ''=>'',
