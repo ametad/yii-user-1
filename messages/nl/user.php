@@ -118,7 +118,7 @@ return array(
 	'Field name on the language of "sourceLanguage".' => 'Veldnaam van de taal "SourceLanguage".',
 	'Field type column in the database.' => 'Veldtype kolom in de database.',
 	'Field size column in the database.' => 'Veldtype grootte in de database.',
-	'The minimum value of the field (form validator).' => 'De minimaal verplichte velden (Form Validator).',
+	'The minimum value of the field (form validator).' => 'De minimaal verplichte waarde van het veld (Form Validator).',
 	'Required field (form validator).' => 'Verplicht veld (Form Validator).',
 	"Regular expression (example: '/^[A-Za-z0-9\s,]+$/u')." => "Reguliere expressie (bijvoorbeeld: '/^[A-Za-z0-9\s,]+$/u').",
 	'Predefined values (example: 1;2;3;4;5 or 1==One;2==Two;3==Three;4==Four;5==Five).' => 'Voorgedefinieerde waarden (bijvoorbeeld: 1;2;3;4;5 of 1==One;2==Two;3==Three;4==Four;5==Five).',
@@ -136,5 +136,6 @@ return array(
     'You have requested our password recovery services. To receive a new password, go to {activation_url}. Sincerely, Team of {site_name}'=>'U heeft bij ons een aanvraag gedaan om uw paswoord opnieuw in te stellen. Om een nieuw paswoord te verkrijgen gaat u naar {activation_url}. Met vriendelijke groet, Team van {site_name}',
     'Please check your email. Further instructions are sent to your email address.'=>'Controleer alstublieft uw email. Verdere instructies zijn naar uw emailadres verzonden.',
     'Thank you for your registration. Please activate your account, go to {activation_url}. Sincerely, Team of {site_name}'=>'Dank u wel voor uw registratie. Maak uw account alstublieft actief via {activation_url}. Met vriendelijke groet, Team van {site_name}',
+    'Field name, named in the language of "sourceLanguage".'=>'Veldnaam, in het Engels benoemen',
     ''=>'',
 );
