@@ -28,8 +28,8 @@ $form=$this->beginWidget('UActiveForm', array( //UActiveForm extends BootActiveF
         <?php echo $form->errorSummary(array($model, $profile)); ?>
         
         <?php echo $form->textFieldRow($model,'username'); ?>
-        <?php echo $form->textFieldRow($model,'password'); ?>
-        <?php echo $form->textFieldRow($model,'verifyPassword'); ?>
+        <?php echo $form->passwordFieldRow($model,'password'); ?>
+        <?php echo $form->passwordFieldRow($model,'verifyPassword'); ?>
         <?php echo $form->textFieldRow($model,'email'); ?>
         <?php 
         
