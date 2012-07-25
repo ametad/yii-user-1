@@ -1,54 +1,23 @@
-<div class="wide form">
-
-<?php $form=$this->beginWidget('CActiveForm', array(
+<?php $form=$this->beginWidget('bootstrap.widgets.BootActiveForm', array(
     'action'=>Yii::app()->createUrl($this->route),
     'method'=>'get',
 )); ?>
 
-    <div class="row">
-        <?php echo $form->label($model,'id'); ?>
-        <?php echo $form->textField($model,'id'); ?>
-    </div>
-
-    <div class="row">
-        <?php echo $form->label($model,'username'); ?>
-        <?php echo $form->textField($model,'username',array('size'=>20,'maxlength'=>20)); ?>
-    </div>
-
-    <div class="row">
-        <?php echo $form->label($model,'email'); ?>
-        <?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>128)); ?>
-    </div>
-
-    <div class="row">
-        <?php echo $form->label($model,'activkey'); ?>
-        <?php echo $form->textField($model,'activkey',array('size'=>60,'maxlength'=>128)); ?>
-    </div>
-
-    <div class="row">
-        <?php echo $form->label($model,'create_at'); ?>
-        <?php echo $form->textField($model,'create_at'); ?>
-    </div>
-
-    <div class="row">
-        <?php echo $form->label($model,'lastvisit_at'); ?>
-        <?php echo $form->textField($model,'lastvisit_at'); ?>
-    </div>
-
-    <div class="row">
-        <?php echo $form->label($model,'superuser'); ?>
-        <?php echo $form->dropDownList($model,'superuser',$model->itemAlias('AdminStatus')); ?>
-    </div>
-
-    <div class="row">
-        <?php echo $form->label($model,'status'); ?>
-        <?php echo $form->dropDownList($model,'status',$model->itemAlias('UserStatus')); ?>
-    </div>
-
-    <div class="row buttons">
-        <?php echo CHtml::submitButton(UserModule::t('Search')); ?>
+        <?php echo $form->textFieldRow($model,'id'); ?>
+        <?php echo $form->textFieldRow($model,'username',array('size'=>20,'maxlength'=>20)); ?>
+        <?php echo $form->textFieldRow($model,'email',array('size'=>60,'maxlength'=>128)); ?>
+        <?php echo $form->textFieldRow($model,'activkey',array('size'=>60,'maxlength'=>128)); ?>
+        <?php echo $form->textFieldRow($model,'create_at'); ?>
+        <?php echo $form->textFieldRow($model,'lastvisit_at'); ?>
+        <?php echo $form->dropDownListRow($model,'superuser',$model->itemAlias('AdminStatus'), array('prompt'=>'')); ?>
+        <?php echo $form->dropDownListRow($model,'status',$model->itemAlias('UserStatus'), array('prompt'=>'')); ?>
+    
+    <div class="form-actions">
+        <?php $this->widget('bootstrap.widgets.BootButton', array(
+            'type'=>'primary',
+            'buttonType'=>'submit',
+            'label'=>UserModule::t('Search'),
+        )); ?>
     </div>
 
 <?php $this->endWidget(); ?>
-
-</div><!-- search-form -->

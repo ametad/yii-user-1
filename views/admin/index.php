@@ -6,9 +6,9 @@ $this->breadcrumbs=array(
 
 $this->menu=array(
     array('label'=>UserModule::t('Create User'), 'url'=>array('create')),
-    array('label'=>UserModule::t('Manage Users'), 'url'=>array('admin')),
-    array('label'=>UserModule::t('Manage Profile Field'), 'url'=>array('profileField/admin')),
-    array('label'=>UserModule::t('List Users'), 'url'=>array('/user')),
+    array('label'=>UserModule::t('Manage Users'), 'url'=>array('/user/admin/admin'), 'visible'=>UserModule::isAdmin()),
+    array('label'=>UserModule::t('Manage Profile Field'), 'url'=>array('/user/profileField/admin')),
+    array('label'=>UserModule::t('List Users'), 'url'=>array('/user/default/index')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -36,7 +36,7 @@ $('.search-form form').submit(function(){
 )); ?>
 </div><!-- search-form -->
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php $this->widget('bootstrap.widgets.BootGridView', array(
 	'id'=>'user-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
@@ -56,6 +56,11 @@ $('.search-form form').submit(function(){
 			'type'=>'raw',
 			'value'=>'CHtml::link(UHtml::markSearch($data,"email"), "mailto:".$data->email)',
 		),
+		/*
+		'id',
+		'username',
+		'email',
+        */
 		'create_at',
 		'lastvisit_at',
 		array(
@@ -69,7 +74,7 @@ $('.search-form form').submit(function(){
 			'filter' => User::itemAlias("UserStatus"),
 		),
 		array(
-			'class'=>'CButtonColumn',
+			'class'=>'bootstrap.widgets.BootButtonColumn',
 		),
 	),
 )); ?>

@@ -3,7 +3,8 @@
 class RegistrationController extends Controller
 {
 	public $defaultAction = 'registration';
-	
+    
+    
 	/**
 	 * Declares class-based actions.
 	 */
@@ -61,13 +62,13 @@ class RegistrationController extends Controller
 									$this->redirect(Yii::app()->controller->module->returnUrl);
 							} else {
 								if (!Yii::app()->controller->module->activeAfterRegister&&!Yii::app()->controller->module->sendActivationMail) {
-									Yii::app()->user->setFlash('registration',UserModule::t("Thank you for your registration. Contact Admin to activate your account."));
+									Yii::app()->user->setFlash('info',UserModule::t("Thank you for your registration. Contact Admin to activate your account."));
 								} elseif(Yii::app()->controller->module->activeAfterRegister&&Yii::app()->controller->module->sendActivationMail==false) {
-									Yii::app()->user->setFlash('registration',UserModule::t("Thank you for your registration. Please {{login}}.",array('{{login}}'=>CHtml::link(UserModule::t('Login'),Yii::app()->controller->module->loginUrl))));
+									Yii::app()->user->setFlash('success',UserModule::t("Thank you for your registration. Please {{login}}.",array('{{login}}'=>CHtml::link(UserModule::t('Login'),Yii::app()->controller->module->loginUrl))));
 								} elseif(Yii::app()->controller->module->loginNotActiv) {
-									Yii::app()->user->setFlash('registration',UserModule::t("Thank you for your registration. Please check your email or login."));
+									Yii::app()->user->setFlash('success',UserModule::t("Thank you for your registration. Please check your email or login."));
 								} else {
-									Yii::app()->user->setFlash('registration',UserModule::t("Thank you for your registration. Please check your email."));
+									Yii::app()->user->setFlash('info',UserModule::t("Thank you for your registration. Please check your email."));
 								}
 								$this->refresh();
 							}

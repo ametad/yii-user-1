@@ -27,13 +27,13 @@ class RecoveryController extends Controller
 									$find->status = 1;
 								}
 								$find->save();
-								Yii::app()->user->setFlash('recoveryMessage',UserModule::t("New password is saved."));
+								Yii::app()->user->setFlash('success',UserModule::t("New password is saved."));
 								$this->redirect(Yii::app()->controller->module->recoveryUrl);
 							}
 						} 
-						$this->render('changepassword',array('form'=>$form2));
+						$this->render('changepassword',array('model'=>$form2));
 		    		} else {
-		    			Yii::app()->user->setFlash('recoveryMessage',UserModule::t("Incorrect recovery link."));
+		    			Yii::app()->user->setFlash('error',UserModule::t("Incorrect recovery link."));
 						$this->redirect(Yii::app()->controller->module->recoveryUrl);
 		    		}
 		    	} else {
@@ -55,11 +55,11 @@ class RecoveryController extends Controller
 							
 			    			UserModule::sendMail($user->email,$subject,$message);
 			    			
-							Yii::app()->user->setFlash('recoveryMessage',UserModule::t("Please check your email. Further instructions are sent to your email address."));
+							Yii::app()->user->setFlash('info',UserModule::t("Please check your email. Further instructions are sent to your email address."));
 			    			$this->refresh();
 			    		}
 			    	}
-		    		$this->render('recovery',array('form'=>$form));
+		    		$this->render('recovery',array('model'=>$form));
 		    	}
 		    }
 	}

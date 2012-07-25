@@ -97,7 +97,7 @@ class ProfileField extends CActiveRecord
 			'other_validator' => UserModule::t('Other Validator'),
 			'default' => UserModule::t('Default'),
 			'widget' => UserModule::t('Widget'),
-			'widgetparams' => UserModule::t('Widget parametrs'),
+			'widgetparams' => UserModule::t('Widget parameters'),
 			'position' => UserModule::t('Position'),
 			'visible' => UserModule::t('Visible'),
 		);

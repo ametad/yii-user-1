@@ -4,18 +4,48 @@ $this->breadcrumbs=array(
 	UserModule::t("Change Password"),
 );
 $this->menu=array(
-	((UserModule::isAdmin())
-		?array('label'=>UserModule::t('Manage Users'), 'url'=>array('/user/admin'))
-		:array()),
-    array('label'=>UserModule::t('List Users'), 'url'=>array('/user')),
-    array('label'=>UserModule::t('Profile'), 'url'=>array('/user/profile')),
+	array('label'=>UserModule::t('Manage Users'), 'url'=>array('/user/admin/admin'), 'visible'=>UserModule::isAdmin()),
+    array('label'=>UserModule::t('List Users'), 'url'=>array('/user/default/index')),
+    array('label'=>UserModule::t('Profile'), 'url'=>array('/user/profile/profile')),
     array('label'=>UserModule::t('Edit'), 'url'=>array('edit')),
-    array('label'=>UserModule::t('Logout'), 'url'=>array('/user/logout')),
+    array('label'=>UserModule::t('Logout'), 'url'=>array('/user/logout/logout')),
 );
 ?>
 
 <h1><?php echo UserModule::t("Change password"); ?></h1>
 
+<?php $form=$this->beginWidget('ext.bootstrap.widgets.BootActiveForm', array(
+    'type'=>'horizontal',
+    'id'=>'changepassword-form',
+    'enableAjaxValidation'=>true,
+    'clientOptions'=>array(
+        'validateOnSubmit'=>true,
+    ),
+)); ?>
+
+    <fieldset>
+        
+        <legend><?php echo UserModule::t('Fields with <span class="required">*</span> are required.'); ?></legend>
+        
+        <?php echo $form->errorSummary($model); ?>
+        
+        <?php echo $form->passwordFieldRow($model,'oldPassword'); ?>
+        <?php echo $form->passwordFieldRow($model,'password'); ?>
+        <?php echo $form->passwordFieldRow($model,'verifyPassword'); ?>
+
+    </fieldset>
+
+    <div class="form-actions">
+        <?php $this->widget('bootstrap.widgets.BootButton',array(
+            'label'=>UserModule::t("Save"),
+            'buttonType'=>'submit',
+            'type'=>'primary',
+        )); ?>
+    </div>
+
+<?php $this->endWidget(); ?>
+
+<?php /*
 <div class="form">
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'changepassword-form',
@@ -52,4 +82,4 @@ $this->menu=array(
 	</div>
 
 <?php $this->endWidget(); ?>
-</div><!-- form -->
+</div><!-- form --> */ ?>

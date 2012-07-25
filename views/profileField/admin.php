@@ -6,7 +6,7 @@ $this->breadcrumbs=array(
 $this->menu=array(
     array('label'=>UserModule::t('Create Profile Field'), 'url'=>array('create')),
     array('label'=>UserModule::t('Manage Profile Field'), 'url'=>array('admin')),
-    array('label'=>UserModule::t('Manage Users'), 'url'=>array('/user/admin')),
+    array('label'=>UserModule::t('Manage Users'), 'url'=>array('/user/admin/admin'), 'visible'=>UserModule::isAdmin()),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -34,7 +34,8 @@ $('.search-form form').submit(function(){
 )); ?>
 </div><!-- search-form -->
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php $this->widget('bootstrap.widgets.BootGridView', array(
+    'id'=>'profile-field-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
@@ -73,7 +74,7 @@ $('.search-form form').submit(function(){
 		),
 		//*/
 		array(
-			'class'=>'CButtonColumn',
+			'class'=>'bootstrap.widgets.BootButtonColumn',
 		),
 	),
 )); ?>

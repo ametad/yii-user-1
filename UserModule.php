@@ -150,11 +150,12 @@ class UserModule extends CWebModule
 	 * @param $dic
 	 * @return string
 	 */
-	public static function t($str='',$params=array(),$dic='user') {
-		if (Yii::t("UserModule", $str)==$str)
+	public static function t($str='',$params=array()/*,$dic='user'*/) {
+		/*if (Yii::t("UserModule", $str)==$str)
 		    return Yii::t("UserModule.".$dic, $str, $params);
         else
-            return Yii::t("UserModule", $str, $params);
+            return Yii::t("UserModule", $str, $params);*/
+        return Yii::t("UserModule", $str, $params);
 	}
 	
 	/**

@@ -13,7 +13,7 @@ class UserController extends Controller
 	public function filters()
 	{
 		return CMap::mergeArray(parent::filters(),array(
-			'accessControl', // perform access control for CRUD operations
+		  'accessControl', // perform access control for CRUD operations
 		));
 	}
 	/**
@@ -26,7 +26,7 @@ class UserController extends Controller
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
 				'actions'=>array('index','view'),
-				'users'=>array('*'),
+				'users'=>array('@'),
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),

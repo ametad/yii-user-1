@@ -2,8 +2,10 @@
 /**
  * CActiveForm class file.
  */
-
-class UActiveForm extends CActiveForm
+ 
+Yii::import('ext.bootstrap.widgets.BootActiveForm');
+// class UActiveForm extends CActiveForm
+class UActiveForm extends BootActiveForm
 {
 
 	public $disableAjaxValidationAttributes = array();

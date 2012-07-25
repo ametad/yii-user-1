@@ -6,12 +6,73 @@ $this->breadcrumbs=array(
 
 <h1><?php echo UserModule::t("Registration"); ?></h1>
 
-<?php if(Yii::app()->user->hasFlash('registration')): ?>
-<div class="success">
-<?php echo Yii::app()->user->getFlash('registration'); ?>
-</div>
-<?php else: ?>
+<?php /*$form=$this->beginWidget('ext.bootstrap.widgets.BootActiveForm', array( */
 
+$form=$this->beginWidget('UActiveForm', array( //UActiveForm extends BootActiveForm
+    'type'=>'horizontal',
+    'id'=>'registration-form',
+    'enableAjaxValidation'=>true,
+    
+    'disableAjaxValidationAttributes'=>array('RegistrationForm_verifyCode'),
+    'clientOptions'=>array(
+            'validateOnSubmit'=>true,
+    ),
+    
+    'htmlOptions' => array('enctype'=>'multipart/form-data'),
+)); ?>
+
+    <fieldset>
+        
+        <legend><?php echo UserModule::t('Fields with <span class="required">*</span> are required.'); ?></legend>
+        
+        <?php echo $form->errorSummary(array($model, $profile)); ?>
+        
+        <?php echo $form->textFieldRow($model,'username'); ?>
+        <?php echo $form->textFieldRow($model,'password'); ?>
+        <?php echo $form->textFieldRow($model,'verifyPassword'); ?>
+        <?php echo $form->textFieldRow($model,'email'); ?>
+        <?php 
+        
+            $profileFields=$profile->getFields();
+            if ($profileFields) {
+                foreach($profileFields as $field) {
+                    
+                    if ($widgetEdit = $field->widgetEdit($profile)) {
+                        echo '<div class="control-group">';
+                        echo $form->labelEx($profile,$field->varname, array('class'=>'control-label'));
+                        echo '<div class="controls">';
+                        echo $widgetEdit;
+                        echo $form->error($profile,$field->varname, array('class'=>'help-inline'));
+                        echo '</div></div>';
+                        // echo '<div class="control-group"><div class="controls">'.$widgetEdit.'</div></div>';
+                    } elseif ($field->range) {
+                        echo $form->dropDownListRow($profile,$field->varname,Profile::range($field->range));
+                    } elseif ($field->field_type=="TEXT") {
+                        echo $form->textAreaRow($profile,$field->varname,array('rows'=>6, 'cols'=>50));
+                    } else {
+                        echo $form->textFieldRow($profile,$field->varname,array('size'=>60,'maxlength'=>(($field->field_size)?$field->field_size:255)));
+                    }
+                }
+            }
+        ?>
+        <?php if (UserModule::doCaptcha('registration')): ?>
+            <?php echo $form->captchaRow($model, 'verifyCode'); ?>
+        <?php endif; ?>
+
+    </fieldset>
+
+    <div class="form-actions">
+        <?php $this->widget('bootstrap.widgets.BootButton',array(
+            'label'=>UserModule::t("Register"),
+            'buttonType'=>'submit',
+            'type'=>'warning',
+        )); ?>
+
+    </div>
+
+<?php $this->endWidget(); ?>
+
+<?php /*
 <div class="form">
 <?php $form=$this->beginWidget('UActiveForm', array(
 	'id'=>'registration-form',
@@ -93,5 +154,4 @@ $this->breadcrumbs=array(
 	</div>
 
 <?php $this->endWidget(); ?>
-</div><!-- form -->
-<?php endif; ?>
+</div><!-- form --> */ ?>

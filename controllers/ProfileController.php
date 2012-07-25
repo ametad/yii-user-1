@@ -15,9 +15,10 @@ class ProfileController extends Controller
 	public function actionProfile()
 	{
 		$model = $this->loadUser();
+        $profile = $model->profile;
 	    $this->render('profile',array(
 	    	'model'=>$model,
-			'profile'=>$model->profile,
+			'profile'=>$profile,
 	    ));
 	}
 
@@ -46,8 +47,8 @@ class ProfileController extends Controller
 			if($model->validate()&&$profile->validate()) {
 				$model->save();
 				$profile->save();
-                Yii::app()->user->updateSession();
-				Yii::app()->user->setFlash('profileMessage',UserModule::t("Changes are saved."));
+                // Yii::app()->user->updateSession();
+				Yii::app()->user->setFlash('success',UserModule::t("Changes are saved."));
 				$this->redirect(array('/user/profile'));
 			} else $profile->validate();
 		}
@@ -79,7 +80,7 @@ class ProfileController extends Controller
 						$new_password->password = UserModule::encrypting($model->password);
 						$new_password->activkey=UserModule::encrypting(microtime().$model->password);
 						$new_password->save();
-						Yii::app()->user->setFlash('profileMessage',UserModule::t("New password is saved."));
+						Yii::app()->user->setFlash('success',UserModule::t("New password is saved."));
 						$this->redirect(array("profile"));
 					}
 			}

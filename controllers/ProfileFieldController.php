@@ -9,7 +9,7 @@ class ProfileFieldController extends Controller
 	private $_model;
 	private static $_widgets = array();
 	public $defaultAction = 'admin';
-	public $layout='//layouts/column2';
+    public $layout='//layouts/column2';
 
 	/**
 	 * @return array action filters
@@ -30,11 +30,11 @@ class ProfileFieldController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('*'),
-				'users'=>array('*'),
+				'actions'=>array('index','view'),
+				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('create','update','view','admin','delete'),
+				'actions'=>array('create','update','admin','delete'),
 				'users'=>UserModule::getAdmins(),
 			),
 			array('deny',  // deny all users
@@ -194,7 +194,7 @@ class ProfileFieldController extends Controller
 				$('#widgetlist option:first').attr('selected', 'selected');
 			}
 			
-			$('div.row').addClass('toshow').removeClass('tohide');
+			$('div.formrow').addClass('toshow').removeClass('tohide');
 			if (fieldType[type].hide.length) $('div.'+fieldType[type].hide.join(', div.')).addClass('tohide').removeClass('toshow');
 			if ($('div.widget select').val()) {
 				$('div.widgetparams').removeClass('tohide');

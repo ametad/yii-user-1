@@ -8,6 +8,13 @@ class UWjuidate {
 	public $params = array(
 		'ui-theme'=>'base',
 		'language'=>'en',
+        'showAnim'=>'fold',
+        // 'dateFormat'=>'dd MM yy',
+        'navigationAsDateFormat'=>TRUE,
+        'showButtonPanel'=>TRUE,
+        'changeMonth'=>TRUE,
+        'changeYear'=>TRUE,
+        'showWeek'=>FALSE,
 	);
 	
 	/**
@@ -58,7 +65,14 @@ class UWjuidate {
 		if (!isset($htmlOptions['id'])) $htmlOptions['id'] = get_class($model).'_'.$field->varname;
 		
 		$id = $htmlOptions['id'];
-		$options['dateFormat'] = 'yy-mm-dd';
+		$options['dateFormat'] = 'yy-mm-dd'; //yy-mm-dd
+		$options['showAnim'] = $this->params['showAnim'];
+		// $options['dateFormat'] = $this->params['dateFormat'];
+		$options['navigationAsDateFormat'] = $this->params['navigationAsDateFormat'];
+		$options['showButtonPanel'] = $this->params['showButtonPanel'];
+		$options['changeMonth'] = $this->params['changeMonth'];
+		$options['changeYear'] = $this->params['changeYear'];
+		$options['showWeek'] = $this->params['showWeek'];
 		$options=CJavaScript::encode($options);
 		
 		$basePath=Yii::getPathOfAlias('user.views.asset');

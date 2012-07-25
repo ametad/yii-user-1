@@ -7,7 +7,32 @@ $this->breadcrumbs=array(
 
 <h1><?php echo UserModule::t("Recover password"); ?></h1>
 
-<?php if(Yii::app()->user->hasFlash('recoveryMessage')): ?>
+<?php $form=$this->beginWidget('ext.bootstrap.widgets.BootActiveForm', array(
+    'type'=>'horizontal',
+)); ?>
+
+    <fieldset>
+        
+        <legend><?php echo UserModule::t('Fields with <span class="required">*</span> are required.'); ?></legend>
+        
+        <?php echo $form->errorSummary($model); ?>
+        
+        <?php echo $form->textFieldRow($model,'login_or_email',array('hint'=>UserModule::t("Please enter your login or email addres."))); ?>
+
+    </fieldset>
+
+    <div class="form-actions">
+        <?php $this->widget('bootstrap.widgets.BootButton',array(
+            'label'=>UserModule::t("Recover"),
+            'buttonType'=>'submit',
+            'type'=>'primary',
+        )); ?>
+    </div>
+
+<?php $this->endWidget(); ?>
+
+
+<?php /* if(Yii::app()->user->hasFlash('recoveryMessage')): ?>
 <div class="success">
 <?php echo Yii::app()->user->getFlash('recoveryMessage'); ?>
 </div>
@@ -30,4 +55,4 @@ $this->breadcrumbs=array(
 
 <?php echo CHtml::endForm(); ?>
 </div><!-- form -->
-<?php endif; ?>
+<?php endif; */?>
