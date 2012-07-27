@@ -1,7 +1,4 @@
-<?php $form=$this->beginWidget('bootstrap.widgets.BootActiveForm', array(
-    'action'=>Yii::app()->createUrl($this->route),
-    // 'method'=>'get',
-)); ?>
+<?php $form=$this->beginWidget('bootstrap.widgets.BootActiveForm', array()); ?>
 
 	<p class="note"><?php echo UserModule::t('Fields with <span class="required">*</span> are required.'); ?></p>
 
