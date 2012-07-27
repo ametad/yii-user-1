@@ -11,12 +11,12 @@ $this->menu=array(
 <h1><?php echo UserModule::t('View User').' "'.$model->username.'"'; ?></h1>
 <?php 
 
-// For authenticated  users
+// For all users
 	$attributes = array(
 			'username',
 	);
 	
-	$profileFields=ProfileField::model()->forUser()->sort()->findAll();
+	$profileFields=ProfileField::model()->forAll()->sort()->findAll();
 	if ($profileFields) {
 		foreach($profileFields as $field) {
 			array_push($attributes,array(

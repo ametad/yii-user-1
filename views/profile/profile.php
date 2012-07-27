@@ -4,7 +4,7 @@ $this->breadcrumbs=array(
 );
 $this->menu=array(
     array('label'=>UserModule::t('Manage Users'), 'url'=>array('/user/admin/admin'), 'visible'=>UserModule::isAdmin()),
-    array('label'=>UserModule::t('List Users'), 'url'=>array('/user/default/index')),
+    array('label'=>UserModule::t('List Users'), 'url'=>array('/user/user/index')),
     array('label'=>UserModule::t('Edit'), 'url'=>array('edit')),
     array('label'=>UserModule::t('Change password'), 'url'=>array('changepassword')),
     array('label'=>UserModule::t('Logout'), 'url'=>array('/user/logout/logout')),

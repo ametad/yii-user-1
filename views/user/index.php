@@ -2,10 +2,10 @@
 $this->breadcrumbs=array(
 	UserModule::t("Users"),
 );
-if(UserModule::isAdmin()) {
+if(UserModule::isAdmin()){
 	$this->layout='//layouts/column2';
 	$this->menu=array(
-	    array('label'=>UserModule::t('Manage Users'), 'url'=>array('/user/admin')),
+	    array('label'=>UserModule::t('Manage Users'), 'url'=>array('/user/admin/admin')),
 	    array('label'=>UserModule::t('Manage Profile Field'), 'url'=>array('profileField/admin')),
 	);
 }
@@ -13,7 +13,7 @@ if(UserModule::isAdmin()) {
 
 <h1><?php echo UserModule::t("List Users"); ?></h1>
 
-<?php $this->widget('zii.widgets.grid.CGridView', array(
+<?php $this->widget('bootstrap.widgets.BootGridView', array(
 	'dataProvider'=>$dataProvider,
 	'columns'=>array(
 		array(

@@ -8,7 +8,7 @@ $this->menu=array(
     array('label'=>UserModule::t('Create User'), 'url'=>array('create')),
     array('label'=>UserModule::t('Manage Users'), 'url'=>array('/user/admin/admin'), 'visible'=>UserModule::isAdmin()),
     array('label'=>UserModule::t('Manage Profile Field'), 'url'=>array('/user/profileField/admin')),
-    array('label'=>UserModule::t('List Users'), 'url'=>array('/user/default/index')),
+    array('label'=>UserModule::t('List Users'), 'url'=>array('/user/user/index')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

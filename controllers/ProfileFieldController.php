@@ -374,11 +374,17 @@ class ProfileFieldController extends Controller
 	public function actionUpdate()
 	{
 		$model=$this->loadModel();
+        /*TEST
+        var_dump($model->id);
+        Yii::app()->end();
+        //TEST*/
 		if(isset($_POST['ProfileField']))
 		{
 			$model->attributes=$_POST['ProfileField'];
-			if($model->save())
+            
+			if($model->save()){
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 		$this->registerScript();
 
